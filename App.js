@@ -8,8 +8,11 @@
 
 import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
+import 'react-native-gesture-handler'
 
 import feed from './assets/data/feed';
+
+import Router from './src/navigation/Router'
 
 import SearchResultsScreen from './src/screens/SearchResults'
 import HomeScreen from './src/screens/Home';
@@ -23,13 +26,7 @@ const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        {/* <Post post={post1} /> */}
-        {/* <SearchResultsScreen /> */}
-        {/* <HomeScreen /> */}
-        {/* <LocationSearchScreen /> */}
-        <GuestsScreen />
-      </SafeAreaView>
+      <Router />
     </>
   );
 };
