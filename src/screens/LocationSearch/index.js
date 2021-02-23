@@ -1,39 +1,46 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import { View, Text, TextInput, FlatList, Pressable } from 'react-native'
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import Entypo from 'react-native-vector-icons/Entypo'
 
 import styles from './styles'
-import searchResults from '../../../assets/data/search'
+import SuggestionRow from './SuggestionRow'
 
 import { useNavigation } from '@react-navigation/native'
 
 const LocationSearchScreen = () => {
 
     const navigation = useNavigation();
-
-    const [inputText, setInputText] = useState('');
     return (
         <View style={styles.container}>
             {/* Input component */}
-            <TextInput
-                sytle={styles.textInput}
-                placeholder="Search Properties"
-                value={inputText}
-                onChangeText={setInputText}
+
+            <GooglePlacesAutocomplete
+                placeholder='Search Properties'
+                onPress={(data, details = null) => {
+                    // 'details' is provided when fetchDetails = true
+                    console.log(data, details);
+                    navigation.navigate('Guest Info')
+                }}
+                styles={{
+                    textInput: styles.textInput
+                }}
+                query={{
+                    key: '',
+                    language: 'en',
+                    type: '(cities)'//can change to addresses
+                }}
+                suppressDefaultStyles
+                renderRow={(item) => <SuggestionRow item={item} />}
             />
+
+
             {/* List of properties */}
-            <FlatList
+            {/* <FlatList
                 data={searchResults}
-                renderItem={({ item }) => (
-                    <Pressable onPress={() => navigation.navigate('Guest Info')} style={styles.row}>
-                        <View style={styles.iconContainer}>
-                            <Entypo name={"location-pin"} size={25} />
-                        </View>
-                        <Text style={styles.locationText}>{item.description}</Text>
-                    </Pressable>
-                )}
-            />
+                renderItem={}
+            /> */}
         </View>
     )
 }
