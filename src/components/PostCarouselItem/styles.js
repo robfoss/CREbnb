@@ -5,6 +5,14 @@ const styles = StyleSheet.create({
     container: {
         height: 120,
         padding: 5,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 10
     },
 
     innerContainer: {
@@ -26,15 +34,11 @@ const styles = StyleSheet.create({
         color: '#5b5b5b',
     },
     description: {
-        fontSize: 16,
-        lineHeight: 24,
-
-
+        fontSize: 15,
     },
     prices: {
-        fontSize: 16,
+        fontSize: 15,
         marginVertical: 10
-
     },
     cost: {
         color: '#5b5b5b',

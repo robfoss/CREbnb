@@ -5,9 +5,12 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import CustomMarker from '../../components/CustomMarker'
 import places from '../../../assets/data/feed';
 import PostCarouselItem from '../../components/PostCarouselItem';
+import { FlatList } from 'react-native-gesture-handler';
+import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions';
 
 const SearchResultsMap = () => {
     const [selectedPlaceId, setSelectedPlaceId] = useState(null)
+    const width = useWindowDimensions().width
     return (
         <View style={{ width: '100%', height: '100%' }}>
             <MapView
@@ -29,8 +32,16 @@ const SearchResultsMap = () => {
                     />)
                 )}
             </MapView>
-            <View style={{ position: 'absolute', bottom: 36 }}>
-                <PostCarouselItem post={places[0]} />
+            <View style={{ position: 'absolute', bottom: 10 }}>
+                <FlatList
+                    data={places}//data to be rendered in flatlist
+                    renderItem={({ item }) => <PostCarouselItem post={item} />}
+                    horizontal //property creates a horizontal flatlist
+                    showsHorizontalScrollIndicator={false} //hides horizontal scrollbar
+                    snapToInterval={width - 60}//stops the automatic scroll. snaps flatlist item in place.
+                    snapToAlignment={'center'}//snaps items to middle of screen
+                    decelerationRate={"fast"}//determines how fast items will snap
+                />
             </View>
         </View>
     );
