@@ -27,7 +27,7 @@ const LocationSearchScreen = () => {
                     textInput: styles.textInput
                 }}
                 query={{
-                    key: '',
+                    key: 'AIzaSyBrfVYIJrWISCNr4A9RogrkmauwX_cTTUE',
                     language: 'en',
                     type: '(cities)'//can change to addresses
                 }}
