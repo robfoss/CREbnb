@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 
@@ -9,8 +10,14 @@ const Post = (props) => {
     const width = useWindowDimensions().width
     const post = props.post;
 
+
+    const navigation = useNavigation();
+    const goToPostPage = () => {
+        navigation.navigate('Post', { postId: post.id })
+    }
+
     return (
-        <View style={[styles.container, { width: width - 60 }]}>
+        <Pressable onPress={goToPostPage} style={[styles.container, { width: width - 60 }]}>
             <View style={styles.innerContainer}>
                 {/* Image */}
                 <Image
@@ -38,7 +45,7 @@ const Post = (props) => {
                 </Text>
                 </View>
             </View>
-        </View>
+        </Pressable>
     );
 };
 

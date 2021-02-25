@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-realestatebnb-dev-75010-authRole",
+      "UnauthRoleArn": "arn:aws:iam::295665308435:role/amplify-realestatebnb-dev-75010-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::295665308435:role/amplify-realestatebnb-dev-75010-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-realestatebnb-dev-75010-deployment",
+      "UnauthRoleName": "amplify-realestatebnb-dev-75010-unauthRole",
+      "StackName": "amplify-realestatebnb-dev-75010",
+      "StackId": "arn:aws:cloudformation:us-east-1:295665308435:stack/amplify-realestatebnb-dev-75010/0084a810-7768-11eb-9707-0eaa1a5b8293",
+      "AmplifyAppId": "d3um0vzdgyr8c1"
+    }
+  }
+}

@@ -12,6 +12,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons'
 import HomeScreen from '../screens/Home'
 import ExploreNavigator from './ExploreNavigator'
 import SearchResultsMap from '../screens/SearchResultsMap'
+import PostScreen from '../screens/PostScreen'
 
 
 
@@ -24,8 +25,8 @@ const HomeTabNavigator = () => {
         }}>
             <Tab.Screen
                 name={"Explore"}
-                // component={ExploreNavigator}
-                component={SearchResultsMap}
+                component={ExploreNavigator}
+
                 // style={{ width: '100%', height: '100%' }}
                 options={{
                     tabBarIcon: ({ color }) => (
